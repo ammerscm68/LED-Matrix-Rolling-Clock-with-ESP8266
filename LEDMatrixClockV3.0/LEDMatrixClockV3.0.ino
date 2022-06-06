@@ -2,7 +2,7 @@
 /*******************************************************************************************
  ** Autor: Mario Ammerschuber                                                             **
  ** Datum: Juni 2022                                                                      **
- ** Version: 3.0                                                                          ** 
+ ** Version: 3.1                                                                          ** 
  ** Lizenz:  Creative Commons Zero v1.0 Universal                                         **
  *******************************************************************************************
 */
@@ -11,18 +11,18 @@
 
 #include "Arduino.h"
 #include <ESP8266WiFi.h>                    
-#include <ArduinoJson.h>                   
+#include <ArduinoJson.h>                    // über Bibliothek installieren
 #include <Timezone.h>                       
 #include <TimeLib.h>                        
 #include <ESP8266WebServer.h>               // Webserver
 #include <WiFiClient.h>                     // WLAN Client
-// #include <ESP8266WebServerSecure.h>      // Webserver Secure
+// #include <ESP8266WebServerSecure.h>      // Webserver secure
 #include "LittleFS.h"                       // Little Filesystem
 #include <WiFiUdp.h>
 #include <string.h>
 #include <DNSServer.h>
 #include <strings_en.h>
-#include <WiFiManager.h>
+#include <WiFiManager.h>                    // Bibliothek "WiFiManager" by tablatronix
 #include <EEPROM.h>
 
 #define ROTATE  90 // Displayausrichtung
