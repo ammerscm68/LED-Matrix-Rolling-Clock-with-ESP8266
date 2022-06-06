@@ -5,6 +5,7 @@ LED-Matrix-Rolling-Clock with ESP8266 (WEMOS D1 mini)
 When the clock is switched on for the first time, an access point is started. (SSID: LED-Matrix-Clock) 
 In the captive portal (standard IP: 192.168.4.1) where you can select your own WLAN.
 The API-key and the city-ID of OpenWeatherMap can also be entered here. (Optional)
+The display can also be switched on and off at a specific time, for example if it is disturbing at night. (Optional)
 
 # Changing the WLAN or the WLAN password:
 The installation of a button (pin D3 to ground) is necessary here.
