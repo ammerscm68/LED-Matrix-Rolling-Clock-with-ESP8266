@@ -252,16 +252,6 @@ if  ((String(d) + "." + String(mo)) == "1.1") // Neujahrsgruß
 // Serial.println(String(h)+":"+String(m)+":" + String(s)+" --- Alles gute im neuen Jahr");
 printStringWithShift("       +++     Alles gute im neuen Jahr     +++                ", ScrollTextTime);
 }
-if  ((String(d) + "." + String(mo)) == "18.4") // Geburtstagsgruß
-{
-// Serial.println(String(h)+":"+String(m)+":" + String(s)+" --- Alles gute zum Geburtstag liebe Rosi");
-printStringWithShift("       +++     Alles gute zum Geburtstag liebe Rosi     +++                ", ScrollTextTime);
-}
-if  ((String(d) + "." + String(mo)) == "10.7") // Geburtstagsgruß
-{
-// Serial.println(String(h)+":"+String(m)+":" + String(s)+" --- Alles gute zum Geburtstag lieber Klaus");
-printStringWithShift("       +++     Alles gute zum Geburtstag lieber Klaus     +++                ", ScrollTextTime); 
-}
 if  ((String(d) + "." + String(mo)) == "25.12" || (String(d) + "." + String(mo)) == "26.12") // Weihnachtsgruß
 {
 // Serial.println(String(h)+":"+String(m)+":" + String(s)+" --- Frohe Weihnachten");
