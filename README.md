@@ -9,9 +9,10 @@ The display can also be switched on and off at a specific time, for example if i
 Always enter the switch-on and switch-off times of the display without a leading zero. (e.g. 7:5 for 7h 5min)
 
 # Changing the WLAN or the WLAN password:
-The installation of a button (pin D3 to ground) is necessary here.
+When a button installed is (pin D3 to ground) then here.
 Press the button until the access point is started (10 times).
 The button also serves to switch the display on and off at the same time.
+Or over Webinterface right bottom of the root site.
 
 # Webinterface:
 The watch also uses a web interface to make settings. The call is made via the IP address of the clock.
