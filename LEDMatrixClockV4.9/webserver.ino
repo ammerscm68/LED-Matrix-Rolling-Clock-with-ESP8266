@@ -651,6 +651,7 @@ void EnhancedFunctionsEin()
 {
 // Serial.println("Zusatzfunktionen eingeschaltet");
 EnhancedFunctions = true;
+StatusOpenWeatherMap = "***Bitte warten***";
 String HTMLString;
 HTMLString = "<!DOCTYPE html> <html>\
   <html lang='de'>\
@@ -677,6 +678,7 @@ void EnhancedFunctionsAus()
 {
 // Serial.println("Zusatzfunktionen ausgeschaltet");
 EnhancedFunctions = false;
+StatusOpenWeatherMap = "deaktiviert";
 String HTMLString;
 HTMLString = "<!DOCTYPE html> <html>\
   <html lang='de'>\
