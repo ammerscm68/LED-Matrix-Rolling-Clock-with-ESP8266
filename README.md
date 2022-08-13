@@ -18,3 +18,8 @@ Or changing over Webinterface right bottom of the root site. <br>
 # Webinterface:
 The watch also uses a web interface to make settings. The call is made via the IP address of the clock. <br>
 <br>
+# Software:
+New from version 5.42: <br>
+Improved webinterface <br>
+bug fix <br>
+The webinterface can now be reached with the DNS name "http://ledmatrixclock.local" <br>
