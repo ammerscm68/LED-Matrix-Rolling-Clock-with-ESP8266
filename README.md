@@ -5,7 +5,7 @@ LED-Matrix-Rolling-Clock with ESP8266 (WEMOS D1 mini)
 ESP8266 ----- Max7219 <br>
   VCC ------------ VCC <br>
   GND ----------- GND <br>
-  D6  ------------ CLK <br>
+  D6  -------------- CLK <br>
   D7  ---------- CS <br>
   D8  ---------- DIN <br>
 
