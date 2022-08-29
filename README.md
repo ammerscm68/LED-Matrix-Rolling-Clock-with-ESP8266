@@ -1,6 +1,14 @@
 # LED-Matrix-Rolling-Clock-with-ESP8266
 LED-Matrix-Rolling-Clock with ESP8266 (WEMOS D1 mini)
 
+# Pinout:<br>
+ESP8266     Max7219 <br>
+  VCC        VCC <br>
+  GND         GND <br>
+  D6          CLK <br>
+  D7          CS <br>
+  D8          DIN <br>
+
 # Installation: 
 When the clock is switched on for the first time, an access point is started. (SSID: LED-Matrix-Clock)  <br>
 In the captive portal (standard IP: 192.168.4.1) where you can select your own WLAN.  <br>
