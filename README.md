@@ -6,8 +6,8 @@ ESP8266 ----- Max7219 <br>
   VCC ------------ VCC <br>
   GND ----------- GND <br>
   D6  ------------- CLK <br>
-  D7  ------------ CS <br>
-  D8  ---------- DIN <br>
+  D7  ------------- CS <br>
+  D8  ------------ DIN <br>
 
 # Installation: 
 When the clock is switched on for the first time, an access point is started. (SSID: LED-Matrix-Clock)  <br>
