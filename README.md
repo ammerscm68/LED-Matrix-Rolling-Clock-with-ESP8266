@@ -10,6 +10,8 @@ ESP8266 ----- Max7219 <br>
   D8  ------------- DIN <br>
   
   VCC = 5V <br>
+  
+  D1 = DHT11 - Sensor <br>
 
 # Installation: 
 When the clock is switched on for the first time, an access point is started. (SSID: LED-Matrix-Clock)  <br>
