@@ -31,6 +31,10 @@ Or changing over Webinterface right bottom of the root site. <br>
 The watch also uses a web interface to make settings. The call is made via the IP address of the clock. <br>
 <br>
 # Software:
+New from version 5.51:<br>
+new Captive Portal (WiFi-Manager) <br>
+bug fix
+<br>
 New from version 5.46:<br>
 Now with Arduino OTA.<br>
 Sketch updates without a USB cable over the network<br>
