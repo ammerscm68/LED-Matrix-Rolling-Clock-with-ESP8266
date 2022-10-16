@@ -35,7 +35,6 @@ New from version 5.51:<br>
 new Captive Portal (WiFi-Manager) <br>
 bug fix
 <br>
-<br>
 New from version 5.46:<br>
 Now with Arduino OTA.<br>
 Sketch updates without a USB cable over the network<br>
