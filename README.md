@@ -28,7 +28,7 @@ The button also serves to switch the display on and off at the same time. <br>
 Or changing over Webinterface right bottom of the root site. <br>
 
 # Webinterface:
-The watch also uses a web interface to make settings. The call is made via the IP address of the clock. <br>
+The watch also uses a web interface to make settings. The call is made via the IP address of the clock or "http://ledmatrixclock.local"<br>
 <br>
 # Software:
 New from version 5.54:<br>
