@@ -22,7 +22,7 @@ The display can also be switched on and off at a specific time, for example if i
 Always enter the switch-on and switch-off times of the display without a leading zero. (e.g. 7:5 for 7h 5min)
 
 # Changing the WLAN or the WLAN password:
-When a button installed is (pin D3 to ground) then here. <br>
+When a button installed is (**pin D3 to ground**) then here. <br>
 Press the button until the access point is started (10 times). <br>
 The button also serves to switch the display on and off at the same time. <br>
 Or changing over Webinterface right bottom of the root site. <br>
@@ -31,6 +31,8 @@ Or changing over Webinterface right bottom of the root site. <br>
 The watch also uses a web interface to make settings. The call is made via the IP address of the clock or "http://ledmatrixclock.local"<br>
 <br>
 # Software:
+New from version 5.56:<br>
+BugFix<br>
 New from version 5.54:<br>
 Display of the AccessPoint IP-Address <br>
 New from version 5.51:<br>
