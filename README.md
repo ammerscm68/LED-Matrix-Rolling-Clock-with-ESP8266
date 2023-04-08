@@ -32,7 +32,7 @@ The watch also uses a web interface to make settings. The call is made via the I
 <br>
 # Software:
 New from version 5.56:<br>
-BugFix<br>
+bug fix <br>
 New from version 5.54:<br>
 Display of the AccessPoint IP-Address <br>
 New from version 5.51:<br>
