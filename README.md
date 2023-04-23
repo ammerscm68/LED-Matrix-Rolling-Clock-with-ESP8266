@@ -32,7 +32,7 @@ The watch also uses a web interface to make settings. The call is made via the I
 <br>
 # Software:
 New from version 5.71:<br>
-improvement Modul news.ini and myfunctions.ino <br>
+improvement Modul news.ino and myfunctions.ino <br>
 New from version 5.60:<br>
 minor improvements<br>
 New from version 5.56:<br>
