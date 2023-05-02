@@ -32,7 +32,7 @@ The watch also uses a web interface to make settings. The call is made via the I
 <br>
 # Software:
 New from version 6.0.6:<br>
-Revised Captive Portal and minor improvements<br
+Revised Captive Portal and minor improvements<br>
 New from version 6.0.0:<br>
 Webinterface completely revised<br>
 New from version 5.72 and 5.73:<br>
