@@ -31,6 +31,8 @@ Or changing over Webinterface right bottom of the root site. <br>
 The watch also uses a web interface to make settings. The call is made via the IP address of the clock or "http://ledmatrixclock.local"<br>
 <br>
 # Software:
+New from version 6.1.0<br>
+Automatic saving of Websitesettings and bug fix<br>
 New from version 6.0.9<br>
 little bug fix<br>
 New from version 6.0.7/8<br>
