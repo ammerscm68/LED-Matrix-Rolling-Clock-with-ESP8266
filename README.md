@@ -31,7 +31,7 @@ Or changing over Webinterface right bottom of the root site. <br>
 The watch also uses a web interface to make settings. The call is made via the IP address of the clock or "http://ledmatrixuhr.local"<br>
 <br>
 # Software:
-New from version 7.0.2<br>
+**New from version 7.0.2**<br>
 Due to lack of memory, the entire software has been revised<br>
 Integration of a passive piezo buzzer. Activation via Captive Portal (Optional)<br>
 New from version 6.1.6/7/8<br>
