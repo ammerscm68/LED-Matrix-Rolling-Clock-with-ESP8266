@@ -12,6 +12,7 @@ ESP8266 ----- Max7219 <br>
   VCC = 5V <br>
   
   D1 = DHT11 - Sensor <br>
+  D2 = Passive Buzzer KY-006 <br>
 
 # Installation: 
 When the clock is switched on for the first time, an access point is started. (SSID: LED-Matrix-Clock)  <br>
@@ -19,7 +20,6 @@ In the captive portal (standard IP: 192.168.4.1) where you can select your own W
 The API-key and the city-ID of "OpenWeatherMap" can also be entered here. (Optional)  <br>
 The API-Key for "NewsAPI" can also be entered here. (Optional) <br>
 The display can also be switched on and off at a specific time, for example if it is disturbing at night. (Optional)  <br>
-Always enter the switch-on and switch-off times of the display without a leading zero. (e.g. 7:5 for 7h 5min)
 
 # Changing the WLAN or the WLAN password:
 When a button installed is (**pin D3 to ground**) then here. <br>
@@ -28,9 +28,12 @@ The button also serves to switch the display on and off at the same time. <br>
 Or changing over Webinterface right bottom of the root site. <br>
 
 # Webinterface:
-The watch also uses a web interface to make settings. The call is made via the IP address of the clock or "http://ledmatrixclock.local"<br>
+The watch also uses a web interface to make settings. The call is made via the IP address of the clock or "http://ledmatrixuhr.local"<br>
 <br>
 # Software:
+New from version 7.0.2<br>
+Due to lack of memory, the entire software has been revised<br>
+Integration of a passive piezo buzzer. Activation via Captive Portal (Optional)<br>
 New from version 6.1.6/7/8<br>
 bug fix<br>
 New from version 6.1.5<br>
