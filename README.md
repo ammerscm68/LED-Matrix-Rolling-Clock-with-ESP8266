@@ -32,7 +32,7 @@ The watch also uses a web interface to make settings. The call is made via the I
 <br>
 # Software:
 **New from version 7.0.5**<br>
-Bug Fix
+Bug Fix<br>
 New from version 7.0.4<br>
 Slightly improved startup sound (only if buzzer installed)<br>
 New from version 7.0.2<br>
