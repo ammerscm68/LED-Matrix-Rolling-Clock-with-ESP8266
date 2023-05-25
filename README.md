@@ -21,7 +21,7 @@ The API-key and the city-ID of "OpenWeatherMap" can also be entered here. (Optio
 The API-Key for "NewsAPI" can also be entered here. (Optional) <br>
 The display can also be switched on and off at a specific time, for example if it is disturbing at night. (Optional)  <br>
 
-# Changing the WLAN or the WLAN password:
+# Changing the WLAN password:
 When a button installed is (**pin D3 to ground**) then here. <br>
 Press the button until the access point is started (10 times). <br>
 The button also serves to switch the display on and off at the same time. <br>
