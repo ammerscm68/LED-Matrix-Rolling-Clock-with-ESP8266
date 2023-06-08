@@ -77,4 +77,4 @@ Sketch updates without a USB cable over the network<br>
 New from version 5.42: <br>
 Improved webinterface <br>
 bug fix <br>
-The webinterface can now be reached with the DNS name "http://ledmatrixclock.local" <br>
+The webinterface can now be reached with the DNS name "http://ledmatrixuhr.local" <br>
