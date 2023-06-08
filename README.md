@@ -11,7 +11,7 @@ ESP8266 ----- Max7219 <br>
   
   VCC = 5V <br>
   
-  D1 = DHT11 - Sensor <br>
+  D1 = DHT11 / DHT22 - Sensor <br>
   D2 = Passive Buzzer KY-006 <br>
 
 # Installation: 
