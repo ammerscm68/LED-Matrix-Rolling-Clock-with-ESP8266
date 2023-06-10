@@ -31,7 +31,10 @@ Or changing over Webinterface right bottom of the root site. <br>
 The watch also uses a web interface to make settings. The call is made via the IP address of the clock or "http://ledmatrixuhr.local"<br>
 <br>
 # Software:
-**New from version 7.0.5/6/7**<br>
+**New from version 7.0.8**<br>
+minor improvements<br>
+Selection of the temperature and humidity sensor type in the sketch (DHT11 or DHT22)<br> 
+New from version 7.0.5/6/7<br>
 Bug Fix<br>
 New from version 7.0.4<br>
 Slightly improved startup sound (only if buzzer installed)<br>
