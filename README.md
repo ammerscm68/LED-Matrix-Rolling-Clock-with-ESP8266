@@ -31,7 +31,9 @@ Or changing over Webinterface right bottom of the root site. <br>
 The watch also uses a web interface to make settings. The call is made via the IP address of the clock or "http://ledmatrixuhr.local"<br>
 <br>
 # Software:
-**New from version 7.2.0**<br>
+**New from version 8.0.0**<br>
+Add Display Check function. Button on the Webinterface <br>
+New from version 7.2.0<br>
 improvement the "greetings()" function <br>
 New from version 7.1.7<br>
 Bug Fix<br>
