@@ -31,7 +31,9 @@ Or changing over Webinterface right bottom of the root site. <br>
 The watch also uses a web interface to make settings. The call is made via the IP address of the clock or "http://ledmatrixuhr.local"<br>
 <br>
 # Software:
-**New from version 8.1.1**<br>
+**New from version 8.1.2**<br>
+Small correction in the settings Site on Webinterface <br>
+New from version 8.1.1<br>
 Look Clock Owner in the settings on Webinterface <br>
 New from version 8.1.0<br>
 Status passive Buzzer look in the settings on Webinterface <br>
