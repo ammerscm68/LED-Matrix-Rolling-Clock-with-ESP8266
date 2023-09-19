@@ -11,8 +11,8 @@ ESP8266 ----- Max7219 <br>
   
   VCC = 5V <br>
   
-  D1 = DHT11 / DHT22 - Sensor <br>
-  D2 = Passive Buzzer KY-006 <br>
+  D1 = DHT11 / DHT22 - Sensor (Optional)<br>
+  D2 = Passive Buzzer KY-006 (Optional)<br>
 
 # Installation: 
 When the clock is switched on for the first time, an access point is started. (SSID: LED-Matrix-Clock)  <br>
