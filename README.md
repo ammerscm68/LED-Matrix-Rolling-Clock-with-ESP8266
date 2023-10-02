@@ -40,7 +40,7 @@ Better distinction between indoor and outdoor air humidity <br>
 Integration of an LED to warn if the humidity is too high or too low <br>
 Optimization of some Void functions <br>
 Versions 9.0.0 - 9.0.5 are internal versions <br>
-<br>
+---------------------------------------------<br>
 New from version 8.1.5<br>
 Sound and Owner function improvement <br>
 New from version 8.1.2<br>
