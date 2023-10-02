@@ -14,6 +14,7 @@ ESP8266 ----- Max7219 <br>
   D1 = DHT11 / DHT22 - Sensor (Optional)<br>
   D2 = Passive Buzzer KY-006 (Optional)<br>
   D3 = Hardware Button (Optional)<br>
+  D5 = LED to GND - for Humity Warning (Optional) <br> 
 
 # Installation: 
 When the clock is switched on for the first time, an access point is started. (SSID: LED-Matrix-Clock)  <br>
@@ -32,7 +33,14 @@ Or changing over Webinterface right bottom of the root site. <br>
 The watch also uses a web interface to make settings. The call is made via the IP address of the clock or "http://ledmatrixuhr.local"<br>
 <br>
 # Software:
-**New from version 8.1.5**<br>
+**New from version 9.0.6**<br>
+Display of indoor and outdoor air humidity in the matrix display <br>
+Better distinction between indoor and outdoor temperatures <br>
+Better distinction between indoor and outdoor air humidity <br>
+Integration of an LED to warn if the humidity is too high or too low <br>
+Optimization of some Void functions <br>
+Versions 9.0.0 - 9.0.5 are internal versions <br>
+New from version 8.1.5<br>
 Sound and Owner function improvement <br>
 New from version 8.1.2<br>
 Small correction in the settings Site on Webinterface <br>
