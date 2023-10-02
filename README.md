@@ -37,7 +37,7 @@ The watch also uses a web interface to make settings. The call is made via the I
 Display of indoor and outdoor air humidity in the matrix display <br>
 Better distinction between indoor and outdoor temperatures <br>
 Better distinction between indoor and outdoor air humidity <br>
-Integration of an LED to warn if the humidity is too high or too low <br>
+Integration of an external LED to warn if the humidity is too high or too low <br>
 Optimization of some Void functions <br>
 Versions 9.0.0 - 9.0.5 are internal versions <br>
 ---------------------------------------------<br>
