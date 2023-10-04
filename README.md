@@ -33,7 +33,9 @@ Or changing over Webinterface right bottom of the root site. <br>
 The watch also uses a web interface to make settings. The call is made via the IP address of the clock or "http://ledmatrixuhr.local"<br>
 <br>
 # Software:
-**New from version 9.0.6**<br>
+**New from version 9.0.7**<br>
+Bug Fix in the "Captive Portal" Modul<br>
+New from version 9.0.6<br>
 Display of indoor and outdoor air humidity in the matrix display <br>
 Better distinction between indoor and outdoor temperatures <br>
 Better distinction between indoor and outdoor air humidity <br>
