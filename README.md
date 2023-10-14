@@ -36,9 +36,9 @@ The watch also uses a web interface to make settings. The call is made via the I
 **New from version 9.2.1**<br>
 Funtion "void greetings()" renamed in "void Greetings_and_Holiday()"<br>
 Function  "void Greetings_and_Holiday()" supplemented by additional holidays<br>
-If you specify the federal state, non-federal holidays are also displayed<br>
-The federal state is specified in the main file (.Ino)<br>
-If no federal state is specified, only federal holidays are displayed<br>
+If you specify the german federal state, german non-federal holidays are also displayed<br>
+The german federal state is specified in the main file (.Ino)<br>
+If no german federal state is specified, only german federal holidays are displayed<br>
 **New from version 9.1.0**<br>
 Function "void loop" highly optimized<br>
 Bug Fix <br>
