@@ -33,6 +33,8 @@ Or changing over Webinterface right bottom of the root site. <br>
 The watch also uses a web interface to make settings. The call is made via the IP address of the clock or "http://ledmatrixuhr.local"<br>
 <br>
 # Software:
+**New from version 9.2.2**<br>
+Bug Fix <br>
 **New from version 9.2.1**<br>
 Funtion "void greetings()" renamed in "void Greetings_and_Holiday()"<br>
 Function  "void Greetings_and_Holiday()" supplemented by additional holidays<br>
