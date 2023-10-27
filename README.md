@@ -33,6 +33,8 @@ Or changing over Webinterface right bottom of the root site. <br>
 The watch also uses a web interface to make settings. The call is made via the IP address of the clock or "http://ledmatrixuhr.local"<br>
 <br>
 # Software:
+**New from version 9.2.6**<br>
+Bug Fix <br>
 **New from version 9.2.5**<br>
 Actions (weather and news) changed from 5 minute interval to 3 minute interval <br>
 Bug Fix <br>
