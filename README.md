@@ -35,6 +35,10 @@ The call is made via the IP address of the clock or <br>
 "http://ledmatrixuhr.local" (German Version)  /  "http://ledmatrixclock.local" (English Version)<br>
 <br>
 # Software:
+**New from version 9.3.2**<br>
+Switching the Temperature output of the US Version from Celsius to Fahrenheit <br>
+Add a Version for Ireland and Austria <br>
+BugFix <br>
 **New from version 9.3.1**<br>
 Revision of the function "void Greetings_and_Holiday()"<br>
 Bug Fix <br>
