@@ -35,6 +35,10 @@ The call is made via the IP address of the clock or <br>
 "http://ledmatrixuhr.local" (German Version)  /  "http://ledmatrixclock.local" (English Version)<br>
 <br>
 # Software:
+**New from version 9.4.0**<br>
+For the German and Austrian versions, the federal state can now be changed in the Captiv portal.<br>
+minor improvements<br>
+BugFix <br>
 **New from version 9.3.3**<br>
 BugFix <br>
 **New from version 9.3.2**<br>
