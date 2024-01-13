@@ -6,7 +6,7 @@
  ** Sensor:  DHT11 or DHT22                                                               **
  ** Buzzer:  Passiv Piezo Buzzer KY-006                                                   **
  ** LED:     3mm Yellow                                                                   **  
- ** Website: https://github.com/ammerscm68/LED-Matrix-Rolling-Clock-with-ESP8266          **                                                                     **  
+ ** Website: https://github.com/ammerscm68/LED-Matrix-Rolling-Clock-with-ESP8266          **  
  ** Lizenz:  Creative Commons Zero v1.0 Universal                                         **
  *******************************************************************************************
 */

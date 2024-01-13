@@ -6,7 +6,7 @@
  ** Sensor:   DHT11 or DHT22                                                               **
  ** Buzzer:   Passiv Piezo Buzzer KY-006                                                   **
  ** LED:      3mm Gelb                                                                     **
- ** Webseite: https://github.com/ammerscm68/LED-Matrix-Rolling-Clock-with-ESP8266          **                                                                     **  
+ ** Webseite: https://github.com/ammerscm68/LED-Matrix-Rolling-Clock-with-ESP8266          ** 
  ** Lizenz:   Creative Commons Zero v1.0 Universal                                         **
  ********************************************************************************************
 */
@@ -66,7 +66,7 @@ int ScrollClockTime  = 80; // Scrollverzögerung bei Animation der Uhrzeit    80
 // ##########################################################################################################################################################
 
 // #################### Temperatur- und Luftfeuchtesensor (DHT 11 oder DHT 22) ##############################################################################
-bool DHT11Sensor = true; // true = DHT11  /  false = DHT22   Sensor    (Ausgabe der Temperatur in Celsius)
+bool DHT11Sensor = false; // true = DHT11  /  false = DHT22   Sensor    (Ausgabe der Temperatur in Celsius)
 // ##########################################################################################################################################################
 
 // ########################## Mitternacht einen Geist anzeigen ##############################################################################################
