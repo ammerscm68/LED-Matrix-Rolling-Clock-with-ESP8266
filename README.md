@@ -35,6 +35,9 @@ The call is made via the IP address of the clock or <br>
 "http://ledmatrixuhr.local" (German Version)  /  "http://ledmatrixclock.local" (English Version)<br>
 <br>
 # Software:
+**New from version 9.5.0**<br>
+The current date is now output with the current calendar week <br>
+BugFix <br>
 **New from version 9.4.1**<br>
 Improvement of WIFI and NTP routine <br>
 **New from version 9.4.0**<br>
