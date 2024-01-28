@@ -35,6 +35,9 @@ The call is made via the IP address of the clock or <br>
 "http://ledmatrixuhr.local" (German Version)  /  "http://ledmatrixclock.local" (English Version)<br>
 <br>
 # Software:
+**New from version 9.5.5**<br>
+More Source code optimization<br>
+BugFix <br>
 **New from version 9.5.4**<br>
 Source code optimization for more free memory<br>
 **New from version 9.5.3**<br>
