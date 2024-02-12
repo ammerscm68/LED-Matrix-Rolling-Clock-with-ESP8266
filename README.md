@@ -35,6 +35,12 @@ The call is made via the IP address of the clock or <br>
 "http://ledmatrixuhr.local" (German Version)  /  "http://ledmatrixclock.local" (English Version)<br>
 <br>
 # Software:
+**New from version 9.7.1**<br>
+Version 9.5.6 to 9.7.0 Internal Versions <br>
+The current Weather and current News can now be viewed on the Website. <br>
+The calibration (offset) of the DHT sensor can now be done live. (No longer via the access point) <br>
+Further optimization of the source code <br>
+Huge BugFix <br>
 **New from version 9.5.5**<br>
 More Source code optimization<br>
 BugFix <br>
