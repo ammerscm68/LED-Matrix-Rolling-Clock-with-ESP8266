@@ -35,10 +35,15 @@ The call is made via the IP address of the clock or <br>
 "http://ledmatrixuhr.local" (German Version)  /  "http://ledmatrixclock.local" (English Version)<br>
 <br>
 # Software:
+**New from version 9.8.1**<br>
+If the DHT Sensor is defective and cannot be Replaced immediately, it is now possible to deactivate <br>
+the Sensor until it is Replaced so that the Values ​​are no longer displayed on the LED Matrix. (Sensor Calibration)<br>
+Integration of the "Pushover Messaging Service" in the Captiv Portal (Access Point).<br>
+The Clock sends a Message if the Airhumidity in the Room is too high or too low. (Optional)<br>
 **New from version 9.7.1**<br>
 Version 9.5.6 to 9.7.0 Internal Versions <br>
 The current Weather and current News can now be viewed on the Website. <br>
-The calibration (offset) of the DHT sensor can now be done live. (No longer via the access point) <br>
+The Calibration (Offset) of the DHT Sensor can now be done live. (No longer via the Access Point) <br>
 Further optimization of the source code <br>
 Huge BugFix <br>
 **New from version 9.5.5**<br>
