@@ -39,7 +39,7 @@ The call is made via the IP address of the clock or <br>
 If the DHT Sensor is defective and cannot be Replaced immediately, it is now possible to deactivate <br>
 the Sensor until it is Replaced so that the Values ​​are no longer displayed on the LED Matrix. (Sensor Calibration)<br>
 Integration of the "Pushover Messaging Service" in the Captiv Portal (Access Point).<br>
-The Clock sends a Message if the Airhumidity in the Room is too high or too low. (Optional)<br>
+The Clock sends a Message, Example to the Smartphone or Tablet, if the Airhumidity in the Room is too high or too low. (Optional)<br>
 **New from version 9.7.1**<br>
 Version 9.5.6 to 9.7.0 Internal Versions <br>
 The current Weather and current News can now be viewed on the Website. <br>
