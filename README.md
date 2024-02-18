@@ -34,6 +34,12 @@ The watch also uses a web interface to make settings. <br>
 The call is made via the IP address of the clock or <br>
 "http://ledmatrixuhr.local" (German Version)  /  "http://ledmatrixclock.local" (English Version)<br>
 <br>
+# Video:
+YouTube Video: (German)<br>
+https://www.youtube.com/watch?v=6Jl69GYtSMw <br>
+YouTube Video: (English)<br>
+https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
+<br>
 # Software:
 **New from version 9.8.1**<br>
 If the DHT Sensor is defective and cannot be Replaced immediately, it is now possible to deactivate <br>
