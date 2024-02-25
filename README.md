@@ -41,6 +41,11 @@ YouTube Video: (English)<br>
 https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 # Software:
+**New from version 9.8.4**<br>
+Version 9.8.2 to 9.8.3 Internal Versions<br>
+Improvement of some Functions<br>
+Improving stability<br>
+Elimination of logic Errors<br>
 **New from version 9.8.1**<br>
 If the DHT Sensor is defective and cannot be Replaced immediately, it is now possible to deactivate <br>
 the Sensor until it is Replaced so that the Values ​​are no longer displayed on the LED Matrix. (Sensor Calibration)<br>
