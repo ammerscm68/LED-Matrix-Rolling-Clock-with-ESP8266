@@ -41,6 +41,8 @@ YouTube Video: (English)<br>
 https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 # Software:
+**New from version 9.8.5**<br>
+Corrected Logic Error in "GoMatrixAction()" function.<br>
 **New from version 9.8.4**<br>
 Version 9.8.2 to 9.8.3 Internal Versions<br>
 Improvement of some Functions<br>
