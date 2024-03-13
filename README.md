@@ -13,7 +13,7 @@ ESP8266 ----- Max7219 <br>
   
   D1 = DHT11 / DHT22 - Sensor (Optional)<br>
   D2 = Passive Buzzer KY-006 (Optional)<br>
-  D3 = Hardware Button (Optional but recommended)<br>
+  D3 = Hardware Button to GND (Optional but recommended)<br>
   D5 = LED to GND - for Humity Warning (Optional) <br> 
 
 # Installation: 
