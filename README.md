@@ -21,7 +21,6 @@ When the clock is switched on for the first time, an access point is started. (S
 In the captive portal (standard IP: 192.168.4.1) where you can select your own WLAN.  <br>
 The API-key and the city-ID of "OpenWeatherMap" can also be entered here. (Optional)  <br>
 The API-Key for "NewsAPI" can also be entered here. (Optional) <br>
-The display can also be switched on and off at a specific time, for example if it is disturbing at night. (Optional)  <br>
 
 # Changing the WLAN password:
 When a button installed is (**pin D3 to ground**) then here. <br>
