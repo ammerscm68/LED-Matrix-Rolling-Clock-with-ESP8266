@@ -59,16 +59,16 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 
 # Software:
 **New from version 9.9.2**<br>
-"NewsAPI.org" has stopped serving Europe. In search<br>
-After a new news service I came across “NewsData.io”.<br>
-I have adapted the “News.ino” module accordingly.<br>
-Since “NewsData.io” only outputs the data via HTTPS, I had to<br>
+"NewsAPI.org" has stopped Serving Europe. In Search<br>
+after a new News Service I came across “NewsData.io”.<br>
+I have adapted the “News.ino” Module accordingly.<br>
+since “NewsData.io” only Outputs the Data via HTTPS, I had to<br>
 from <WiFiClient.h> to <WiFiClientSecure.h>.<br>
-Unfortunately, this costs significantly more memory (RAM).<br>
-The settings of the Arduino IDE need to be adjusted.<br>
-After this setting, all settings on the ESP8266 go lost.<br>
-The corresponding settings are shown (see above).<br>
-Other minor improvements have been added.<br>
+unfortunately, this costs significantly more Memory (RAM).<br>
+The Settings of the Arduino IDE need to be Adjusted.<br>
+After this Setting, all Settings on the ESP8266 go lost.<br>
+The Corresponding Settings in the Arduino IDE are Shown (see above).<br>
+Other Minor Improvements have been added.<br>
 Version 9.9.0 - Version 9.9.1 are internal Versions<br>
 **New from version 9.8.5**<br>
 Corrected Logic Error in "GoMatrixAction()" function.<br>
