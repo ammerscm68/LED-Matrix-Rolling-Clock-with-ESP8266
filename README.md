@@ -16,6 +16,12 @@ ESP8266 ----- Max7219 <br>
   D3 = Hardware Button to GND (Optional but recommended)<br>
   D5 = LED to GND - for Humity Warning (Optional) <br> 
 
+# Setting in the Arduino IDE (“Tools” Menu Item)
+
+![grafik](https://github.com/user-attachments/assets/cf63eb2f-9dc9-4c2e-aa97-f560f226a1eb)
+
+  
+
 # Installation: 
 When the clock is switched on for the first time, an access point is started. (SSID: LED-Matrix-Clock)  <br>
 In the captive portal (standard IP: 192.168.4.1) where you can select your own WLAN.  <br>
@@ -40,6 +46,17 @@ YouTube Video: (English)<br>
 https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 # Software:
+**New from version 9.9.2**<br>
+"NewsAPI.org" has stopped serving Europe. In search<br>
+After a new news service I came across “NewsData.io”.<br>
+I have adapted the “News.ino” module accordingly.<br>
+Since “NewsData.io” only outputs the data via HTTPS, I had to<br>
+from <WiFiClient.h> to <WiFiClientSecure.h>.<br>
+Unfortunately, this costs significantly more memory (RAM).<br>
+The settings of the Arduino IDE need to be adjusted.<br>
+After this setting, all settings on the ESP8266 go lost.<br>
+The corresponding settings are shown in the picture.<br>
+Other minor improvements have been added.<br>
 **New from version 9.8.5**<br>
 Corrected Logic Error in "GoMatrixAction()" function.<br>
 **New from version 9.8.4**<br>
