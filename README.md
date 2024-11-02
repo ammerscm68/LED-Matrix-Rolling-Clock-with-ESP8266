@@ -17,7 +17,7 @@ ESP8266 ----- Max7219 <br>
   D5 = LED to GND - for Humity Warning (Optional) <br> 
 <br>
 <br>
-# Setting in the Arduino IDE (“Tools” Menu Item) <br>
+# Setting in the Arduino IDE (Menu Item “Tools”) <br>
 # For ESP8266 Wemos/LOLIN D1 Mini
 
 ![grafik](https://github.com/user-attachments/assets/cf63eb2f-9dc9-4c2e-aa97-f560f226a1eb)
