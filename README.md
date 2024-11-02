@@ -24,7 +24,7 @@ ESP8266 ----- Max7219 <br>
 
 **Attention: All settings on the ESP8266 will be lost !!!**
 <br>
-
+<br>
 # Installation: 
 When the clock is switched on for the first time, an access point is started. (SSID: LED-Matrix-Clock)  <br>
 In the captive portal (standard IP: 192.168.4.1) where you can select your own WLAN.  <br>
