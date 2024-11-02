@@ -15,7 +15,9 @@ ESP8266 ----- Max7219 <br>
   D2 = Passive Buzzer KY-006 (Optional)<br>
   D3 = Hardware Button to GND (Optional but recommended)<br>
   D5 = LED to GND - for Humity Warning (Optional) <br> 
-
+<br>
+<br>
+<br>
 # Setting in the Arduino IDE for the <br>
 # ESP8266 Wemos/LOLIN D1 Mini (“Tools” Menu Item)
 
