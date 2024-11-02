@@ -60,7 +60,7 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 
 # Software:
 **New from Version 9.9.2**<br>
-"NewsAPI.org" has stopped Serving Europe. In Search<br>
+"NewsAPI.org" has stopped Service in Europe. In Search<br>
 after a new News Service I came across “NewsData.io”.<br>
 I have adapted the “News.ino” Module accordingly.<br>
 since “NewsData.io” only Outputs the Data via HTTPS, I had to<br>
