@@ -70,8 +70,8 @@ The Settings of the Arduino IDE need to be Adjusted.<br>
 After this Setting, all Settings on the ESP8266 go lost.<br>
 The Corresponding Settings in the Arduino IDE are Shown (see above).<br>
 Other Minor Improvements have been added.<br>
-BugFix <br>
-Version 9.8.6 - Version 9.9.1 are internal Versions<br>
+BugFix. <br>
+Version 9.8.6 - Version 9.9.1 are internal Versions.<br>
 **New from Version 9.8.5**<br>
 Corrected Logic Error in "GoMatrixAction()" function.<br>
 **New from Version 9.8.4**<br>
