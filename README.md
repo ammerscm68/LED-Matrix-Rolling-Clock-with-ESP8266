@@ -24,7 +24,6 @@ ESP8266 ----- Max7219 <br>
 ![grafik](https://github.com/user-attachments/assets/cf63eb2f-9dc9-4c2e-aa97-f560f226a1eb)
 
 <br>
-<br>
 
 # Installation: 
 When the clock is switched on for the first time, an access point is started. (SSID: LED-Matrix-Clock)  <br>
