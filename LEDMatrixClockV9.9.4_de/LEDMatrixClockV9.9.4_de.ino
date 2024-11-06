@@ -35,7 +35,7 @@ String BoardName = "Wemos/Lolin D1 mini"; // Boardname des ESP8266
 // ************************ Hauptbesitzer ************************************  [for void Greetings_and_Holiday()]
 String WatchOwner1FirstName = ""; // Vorname des Hauptbesitzers - Example: Mario
 String WatchOwner1LastName  = ""; // Nachname des Hauptbesitzers - Example: Müller
-String Gender1 = ";  // male=männlich | female=weiblich
+String Gender1 = "";  // male=männlich | female=weiblich
 String Birthday1 = ""; // Example: 17.3 or 2.4 or 5.10 or 23.11
 // **************************************************************************************************
 // ************************ 2. Besitzer (Optional) **************************************************
