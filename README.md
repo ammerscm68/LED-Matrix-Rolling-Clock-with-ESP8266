@@ -59,6 +59,8 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 9.9.4**<br>
+BugFix. <br>
 **New from Version 9.9.3**<br>
 BugFix. <br>
 **New from Version 9.9.2**<br>
