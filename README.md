@@ -69,7 +69,7 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 # Software:
 **New from Version 10.0.1**<br>
 New Major Version (Version 10.0.0 is a internal beta)<br>
-Add new Function "gmcmap.com" - Download the current Radioactivity Values ​​at the selected Location.<br>
+Add a new Function "gmcmap.com" - Download the current Radioactivity Values ​​at the selected Location.<br>
 [The Necessary Parameters can be set in the "Captive Portal" (see above)] <br>
 Display of the current WiFi Signal strength for better Location selection of the Clock (On the Matrix Display [Alert] and on the Web Interface)<br>
 (automatic deactivation of Online Functions in case of very poor WiFi Signal strength) <br>
