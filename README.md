@@ -48,6 +48,8 @@ The call is made via the IP address of the clock or <br>
 "http://ledmatrixclock.local" (English Version)<br>
 "http://ledmatricehorloge.local" (French Version) <br>
 
+<br>
+
 # GMCMap.com:
 Setting in Captive Portal: <br>
 GMCMap.com - History-ID: **12345678** <br>
