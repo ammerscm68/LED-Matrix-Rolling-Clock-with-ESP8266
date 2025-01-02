@@ -54,7 +54,7 @@ The call is made via the IP address of the clock or <br>
 Setting in Captive Portal: <br>
 GMCMap.com - History-ID: **12345678** <br>
 GMCMap.com - GMT-Offset: **2** <br>
-(Web URL: http://www.gmcmap.com/historyData.asp?Param_ID=**12345678**&systemTimeZone=**2**)  <br>
+(Web URL: www.gmcmap.com/historyData.asp?Param_ID=**12345678**&systemTimeZone=**2**)  <br>
 
 <br>
 
