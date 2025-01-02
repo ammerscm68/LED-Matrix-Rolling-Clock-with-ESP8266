@@ -73,7 +73,7 @@ Add new Function "gmcmap.com" - Download the current Radioactivity Values ​​
 [The Necessary Parameters can be set in the "Captive Portal" (see above)] <br>
 Display of the current WiFi Signal strength for better Location selection of the Clock <br>
 (automatic deactivation of Online Functions in case of very poor WiFi Signal strength) <br>
-The maximum of 3 Owners of the Clock can now be changed at any Time in the "Captive Portal".
+The maximum of 3 Owners of the Clock can now be changed at any Time in the "Captive Portal".<br>
 Optimization of the source Code <br>
 BugFix <br>
 **New from Version 9.9.4**<br>
