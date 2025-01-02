@@ -48,6 +48,12 @@ The call is made via the IP address of the clock or <br>
 "http://ledmatrixclock.local" (English Version)<br>
 "http://ledmatricehorloge.local" (French Version) <br>
 
+# GMCMap.com:
+Setting in Captive Portal: <br>
+GMCMap.com - History-ID: **12345678** <br>
+GMCMap.com - GMT-Offset: **2** <br>
+(Web URL: http://www.gmcmap.com/historyData.asp?Param_ID=**12345678**&systemTimeZone=**2**)  <br>
+
 <br>
 
 # Video:
@@ -59,6 +65,15 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 10.0.1**<br>
+New Major Version (Version 10.0.0 is a internal beta)<br>
+Add new Function "gmcmap.com" - Download the current Radioactivity Values ​​at the selected Location.<br>
+[The Necessary Parameters can be set in the "Captive Portal" (see above)] <br>
+Display of the current WiFi Signal strength for better Location selection of the Clock <br>
+(automatic deactivation of Online Functions in case of very poor WiFi Signal strength) <br>
+The maximum of 3 Owners of the Clock can now be changed at any Time in the "Captive Portal".
+Optimization of the source Code <br>
+BugFix <br>
 **New from Version 9.9.4**<br>
 BugFix. <br>
 **New from Version 9.9.3**<br>
