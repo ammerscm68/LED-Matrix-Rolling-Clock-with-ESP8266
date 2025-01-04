@@ -26,7 +26,7 @@ ESP8266 ----- Max7219 <br>
 <br>
 <br>
 # Installation: 
-When the Clock is switched on for the first time, an Access Point is started. (SSID: LED-Matrix-Clock)  <br>
+When the Clock is switched on for the first time, an Access Point is started. (SSID: LED-Matrix-Clock / Yes depending on Language Version)  <br>
 In the Captive Portal (standard IP: 192.168.4.1) where you can select your own WLAN.  <br>
 The API-key and the City-ID of "OpenWeatherMap" can also be entered here. (Optional)  <br>
 The API-Key for "NewsData" can also be entered here. (Optional) <br>
