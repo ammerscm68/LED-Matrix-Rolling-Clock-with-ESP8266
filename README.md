@@ -75,7 +75,7 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 
 # Software:
 **New from Version 10.0.3**<br>
-Fix logic Error in GMSMap.com Function <br>
+Fix logic Error in "GMSMap.com" Function <br>
 **New from Version 10.0.2** <br>
 With corresponding OpenWeatherMap Data, the Clock now also shows the probability of Snowfall (Chance of Snow) <br>
 **New from Version 10.0.1**<br>
