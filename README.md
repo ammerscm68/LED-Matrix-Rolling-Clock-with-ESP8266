@@ -31,6 +31,7 @@ In the Captive Portal (standard IP: 192.168.4.1) where you can select your own W
 The API-key and the City-ID of "OpenWeatherMap" can also be entered here. (Optional)  <br>
 The API-Key for "NewsData" can also be entered here. (Optional) <br>
 The GMCMap.com History-ID and the GMT-Offset can also entered here. (Optional) <br>
+The up to 3 Owners of the Clock can also be entered here. (Optional) <br>
 
 <br>
 
