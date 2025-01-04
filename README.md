@@ -31,6 +31,7 @@ When the Clock is switched on for the first time, an Access Point is started. <b
 **LED-Matrix-Clock** (English)<br>
 **LED-Matrix-Uhr** (German) <br>
 **LED-Matrice-Horlog** (French) <br>
+<br>
 In the Captive Portal (standard IP: 192.168.4.1) where you can select your own WLAN.  <br>
 The API-key and the City-ID of "OpenWeatherMap" can also be entered here. (Optional)  <br>
 The API-Key for "NewsData" can also be entered here. (Optional) <br>
