@@ -62,6 +62,23 @@ Example Setting in Captive Portal: <br>
 GMCMap.com - History-ID: **12345678** <br>
 GMCMap.com - GMT-Offset: **2** <br>
 (Web URL: www.gmcmap.com/historyData.asp?Param_ID=12345678&systemTimeZone=2)  <br>
+<br>
+Explanation of the "GMCMapMidnightAccessDelay" Function:<br>
+In the "gmc.ino" File, after downloading the Current Data, the <br>
+Current Date is compared with the last Date on the GMCMap <br>
+Website History of the Sensor. If the current Date does not <br>
+Match the last Date in the GMCMap History, the Clock Displays <br>
+an Error Message.In the worst case, this can happen after <br> 
+Midnight, if there is no New GMCMap Data. With the <br>
+"GMCMapMidnightAccessDelay" Function, you can now Wait a <br>
+certain Number of Minutes until the next Values ​​are downloaded <br>
+from GMCMap Website in Order to avoid an accidental Error Message.<br>
+<br>
+Example: The GMC-Sensor sends its Values ​​to the GMCMap.com <br>
+Website every 10 Minutes. In this Case, a Value of 30 for the <br>
+"GMCMapMidnightAccessDelay" Function would be useful. <br>
+This means that after 30 Minutes GMCMap Data will be downloaded again. <br>
+The Default Value is 30 Minutes. <br>
 
 <br>
 
@@ -74,6 +91,9 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 10.0.4**<br>
+Inserting the Function "GMCMapMidnightAccessDelay" - Explanation see above <br>
+BugFix <br>
 **New from Version 10.0.3**<br>
 Fix logic Error in "GMSMap.com" Function <br>
 **New from Version 10.0.2** <br>
