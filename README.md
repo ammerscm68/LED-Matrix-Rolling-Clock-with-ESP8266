@@ -69,7 +69,7 @@ Current Date is compared with the last Date on the GMCMap <br>
 Website History of the Sensor. If the current Date does not <br>
 Match the last Date in the GMCMap History, the Clock Displays <br>
 an Error Message.In the worst case, this can happen after <br> 
-Midnight, if there is no New GMCMap Data. With the <br>
+Midnight, if there is no new GMCMap Data. With the <br>
 "GMCMapMidnightAccessDelay" Function, you can now Wait a <br>
 certain Number of Minutes until the next Values ​​are downloaded <br>
 from GMCMap Website in Order to avoid an accidental Error Message.<br>
