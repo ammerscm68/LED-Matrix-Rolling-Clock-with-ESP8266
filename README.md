@@ -91,6 +91,11 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 10.0.8**<br>
+Display of the Clock Status from the last Start in the Web Interface. (Example: WLAN failure) <br>
+Stabilization of the Web Interface <br>
+Major Bugfix with Notepad++ and the Compare Function <br>
+Version 10.0.5-10.0.7 are internal Versions <br>
 **New from Version 10.0.4**<br>
 Inserting the Function "GMCMapMidnightAccessDelay" - Explanation see above <br>
 BugFix <br>
