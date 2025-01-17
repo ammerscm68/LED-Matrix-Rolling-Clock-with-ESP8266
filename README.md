@@ -91,6 +91,9 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 10.1.0**<br>
+From this Version on you can set in the Captive Portal whether Midnight Ghosts should appear or not. <br>
+(Previously this could only be changed directly in the Sketch) <br>
 **New from Version 10.0.9**<br>
 Correction of a small Cosmetic defect that bothered me. Sorry <br>
 **New from Version 10.0.8**<br>
