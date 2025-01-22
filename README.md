@@ -91,6 +91,11 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 10.1.2**<br>
+Version 10.1.1 is a internal beta<br>
+Added Valentine's Day to the Holidays even if it is not a Holiday, Many Hearts are Displayed <br>
+The Time Zone can now be changed in the Captive Portal. <br>
+The NTP Server issue should now be Resolved <br>
 **New from Version 10.1.0**<br>
 From this Version on you can set in the Captive Portal whether Midnight Ghosts should appear or not. <br>
 (Previously this could only be changed directly in the Sketch) <br>
