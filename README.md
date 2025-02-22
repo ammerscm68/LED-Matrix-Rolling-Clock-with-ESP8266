@@ -91,6 +91,12 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 10.2.0**<br>
+Versions 10.1.3 to 10.1.9 are internal Versions. <br>
+The NTP Server Pool can now be Changed in the "Captiv Portal".<br>
+Due to lack of Memory (RAM), from this Version onwards only either the "GMC.ino" Module or the "News.ino" module can be used. <br>
+Source Code further optimized.<br>
+BugFix <br>
 **New from Version 10.1.2**<br>
 Version 10.1.1 is a internal beta<br>
 Added Valentine's Day to the Holidays even if it is not a Holiday, Many Hearts are Displayed <br>
