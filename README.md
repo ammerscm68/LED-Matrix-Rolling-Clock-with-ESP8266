@@ -91,6 +91,8 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 10.2.1**<br>
+Module "GMC.ino" further optimized. This resulted in 2-3 kB of RAM being regained.<br>
 **New from Version 10.2.0**<br>
 Versions 10.1.3 to 10.1.9 are internal Versions. <br>
 The NTP Server Pool can now be Changed in the "Captiv Portal".<br>
