@@ -91,6 +91,8 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 10.2.2**<br>
+BugFix <br>
 **New from Version 10.2.1**<br>
 Module "GMC.ino" further optimized. This resulted in 2-3 kB of RAM being regained.<br>
 **New from Version 10.2.0**<br>
