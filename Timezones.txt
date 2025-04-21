@@ -45,7 +45,7 @@ TimeChangeRule aEST = {"AEST", First, Sun, Apr, 3, 600};    // UTC + 10 hours
 Timezone ausET(aEDT, aEST);
 
 // Canada Mountain Time Zone 
-// (Edmonton, Cranbrook, Fort St. John, Inuvik, Cambridge Bay, Lloydminster, Whitehorse)
+// (Edmonton, Cranbrook, Fort St. John, Inuvik, Cambridge Bay, Lloydminster)
 TimeChangeRule caMDT = {"MDT", Second, Sun, Mar, 2, -360}; // UTC -6 Hours
 TimeChangeRule caMST = {"MST", First, Sun, Nov, 2, -420};  // UTC -7 Hours
 Timezone caMT(caMDT, caMST);
@@ -70,6 +70,10 @@ Timezone caACT(caADT, caAST);
 TimeChangeRule caEDT = {"EDT", Second, Sun, Mar, 2, -240};  // Eastern Daylight Time = UTC - 4 hours
 TimeChangeRule caEST = {"EST", First, Sun, Nov, 2, -300};   // Eastern Standard Time = UTC - 5 hours
 Timezone caET(caEDT, caEST);
+
+// Canada Whitehorse Standard Time (MST, does not observe DST)
+TimeChangeRule mst = {"MST", Last, Sun, Mar, 1, -420}; // UTC -7 Hours
+Timezone tzMST(mst);
 
 // Moscow Standard Time (MSK, does not observe DST)
 TimeChangeRule msk = {"MSK", Last, Sun, Mar, 1, 180};
