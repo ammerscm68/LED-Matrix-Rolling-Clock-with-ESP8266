@@ -1,3 +1,5 @@
+// ******** https://www.timeanddate.com/ **********
+
 // ---------------------------- Timezones -------------------------------- //
 // Edit these Lines According to your Time Zone and Daylight saving Time.
 // TimeZone Settings Details https://github.com/JChristensen/Timezone
