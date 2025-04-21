@@ -66,7 +66,7 @@ TimeChangeRule caADT = {"ADT", Second, Sun, Mar, 2, -180}; // UTC -3 Hours
 TimeChangeRule caAST = {"AST", First, Sun, Nov, 2, -240}; // UTC -4 Hours
 Timezone caACT(caADT, caAST);
 
-// Canada Eastern Time Zone (Coral Harbour, Pond Inlet, Atikokan, Toronto, Montréal)
+// Canada Eastern Time Zone (Coral Harbour, Pond Inlet, Atikokan, Toronto, Montréal, Ottawa)
 TimeChangeRule caEDT = {"EDT", Second, Sun, Mar, 2, -240};  // Eastern Daylight Time = UTC - 4 hours
 TimeChangeRule caEST = {"EST", First, Sun, Nov, 2, -300};   // Eastern Standard Time = UTC - 5 hours
 Timezone caET(caEDT, caEST);
