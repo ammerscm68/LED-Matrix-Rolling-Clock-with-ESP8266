@@ -22,6 +22,8 @@ ESP8266 ----- Max7219 <br>
 
 ![grafik](https://github.com/user-attachments/assets/cf63eb2f-9dc9-4c2e-aa97-f560f226a1eb)
 
+**Recommended CPU Frequency: 160 MHz**
+
 **Attention: All settings on the ESP8266 will be lost !!!**
 <br>
 <br>
