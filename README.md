@@ -93,6 +93,9 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 10.2.4**<br>
+Improvements in the "news.ino" Mdule - Now you can set the language of the downloaded Data.<br>
+BugFix<br>
 **New from Version 10.2.3**<br>
 Added a Canadian Version in French Language<br>
 If the WLAN Connection fails, the Bottom Right Dot in the Matrix7219 will Flash to indicate that an attempt is being made to Re-Establish the WLAN Connection.<br>
