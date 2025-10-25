@@ -97,6 +97,10 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 10.2.6**<br>
+Version 10.2.5 is an internal Version<br>
+BugFix<br>
+Changes in the Section "Changing the WiFi Password:" on this Manual<br>
 **New from Version 10.2.4**<br>
 Improvements in the "news.ino" Module - Now you can set the language of the downloaded Data.<br>
 BugFix<br>
