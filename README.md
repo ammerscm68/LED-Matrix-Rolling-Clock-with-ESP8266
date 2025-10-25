@@ -47,6 +47,10 @@ When a button installed is (**pin D3 to ground**) then here. <br>
 Press the button until the access point is started (10 times). <br>
 The button also serves to switch the display on and off at the same time. <br>
 Or changing over Webinterface right bottom of the root site. <br>
+<br>
+If the WiFi Password on the Router has already been Changed, wait <br>
+until a dot flashes in the bottom right Corner of the Display and <br>
+then Press the Button continuously until the Clock resets.<br>
 
 <br>
 
