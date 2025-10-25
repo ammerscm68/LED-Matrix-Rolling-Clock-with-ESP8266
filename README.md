@@ -42,10 +42,10 @@ The up to 3 Owners of the Clock can also be entered here. (Optional) <br>
 
 <br>
 
-# Changing the WLAN password:
-When a button installed is (**pin D3 to ground**) then here. <br>
-Press the button until the access point is started (10 times). <br>
-The button also serves to switch the display on and off at the same time. <br>
+# Changing the WiFi Password:
+When a Button installed is (**pin D3 to ground**) then here. <br>
+Press the Button until the access point is started (10 times). <br>
+The button also serves to switch the Display on and off at the same time. <br>
 Or changing over Webinterface right bottom of the root site. <br>
 <br>
 If the WiFi Password on the Router has already been Changed, wait <br>
