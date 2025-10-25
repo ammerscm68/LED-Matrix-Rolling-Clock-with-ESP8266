@@ -97,6 +97,8 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 10.2.7**<br>
+Improvement of the "SaveClockStatus" and "MatrixButtonOnOff" functions <br>
 **New from Version 10.2.6**<br>
 Version 10.2.5 is an internal Version<br>
 BugFix<br>
