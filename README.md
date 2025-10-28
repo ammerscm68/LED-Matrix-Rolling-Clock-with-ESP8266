@@ -104,7 +104,7 @@ Improvement of the "SaveClockStatus" and "MatrixButtonOnOff" functions <br>
 **New from Version 10.2.6**<br>
 Version 10.2.5 is an internal Version<br>
 BugFix<br>
-Changes in the Section "Changing the WiFi Password:" on this Manual<br>
+Changes in the Section "Changing the WiFi Password:" on this Manual (on TOP)<br>
 **New from Version 10.2.4**<br>
 Improvements in the "news.ino" Module - Now you can set the language of the downloaded Data.<br>
 BugFix<br>
