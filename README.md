@@ -98,6 +98,8 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 10.2.9**<br>
+In the Captive-Portal, you can now select or change the DHT-Sensor without having to re-upload the Sketch.<br>
 **New from Version 10.2.8**<br>
 WiFi Signal strength: Area redefined.<br>
 **New from Version 10.2.7**<br>
