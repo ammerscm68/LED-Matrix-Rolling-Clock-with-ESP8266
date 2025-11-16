@@ -98,6 +98,10 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 10.3.2**<br>
+Versions 10.3.0 and 10.3.1 are internal Versions.<br>
+The Debugging Routine has been improved. It now uses less Memory (RAM). <br>
+With the "OpenWeatherMAP" Module activated, the Time of Sunrise and Sunset is now also displayed.<br>
 **New from Version 10.2.9**<br>
 In the Captive-Portal, you can now select or change the DHT-Sensor without reupload the Sketch.<br>
 **New from Version 10.2.8**<br>
