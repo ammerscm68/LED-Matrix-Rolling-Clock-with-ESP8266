@@ -102,7 +102,7 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 New Major Version. Versions 11.0.0 to 11.0.4 are internal Versions. <br>
 The Firmware was largely rewritten to free up even more RAM. <br>
 There should now be enough free RAM available that there are no more exceptions. <br>
-If RAM becomes scarce, the modules <Weather, News, GMC and PushOver> will not be executed until sufficient RAM is available again.<br>
+If RAM becomes scarce, the Modules <Weather, News, GMC and PushOver> will not be executed until sufficient RAM is available again.<br>
 Attention: Switching from "ArduinoJSON 6" to "ArduinoJSON 7". The Document storage is now determined by "ArduinoJSON 7" itself. <br>
 Bug Fix <br>
 **New from Version 10.3.2**<br>
