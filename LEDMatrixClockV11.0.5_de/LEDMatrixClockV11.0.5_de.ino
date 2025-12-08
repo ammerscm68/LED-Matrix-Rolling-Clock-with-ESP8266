@@ -28,7 +28,7 @@ const char* LMCVersion = "11.0.5 de";
 ESP8266WebServer server(80); // Webserver auf Port 80     border-radius: 50\%
 
 /********************( Definieren der Globale Variablen und Konstanten)********************/
-const char* BoardName = "Wemos/Lolin D1 mini Pro"; // Boardname des ESP8266
+const char* BoardName = "Wemos/Lolin D1 mini"; // Boardname des ESP8266
 
 /********************( Arduino OTA/DNS Passwort)********************/
 const char* OTAPassWD = "74656"; // Default = 74656
@@ -1075,3 +1075,4 @@ getAnimClock(true); // Uhrzeit anzeigen / berechnen
             Keine Feiertage anzeigen = Irgend eine Buchstabenkombination außer der oben z.Bsp. KF
             ***************************************************************************************
 */
+
