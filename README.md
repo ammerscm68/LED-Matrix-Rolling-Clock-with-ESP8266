@@ -98,6 +98,14 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 <br>
 
 # Software:
+**New from Version 11.0.7**<br>
+Version 11.0.6 is an internal Version. <br>
+Further Firmware optimization has freed up even more RAM. <br>
+It is now possible to run all three Online-Modules (Weather, News and GMC) simultaneously. <br>
+Starting with this Version, the three Online-Modules (Weather, News and GMC) will automatically  <br>
+stop running if there is insufficient RAM available. The same applies if the Wi-Fi Signal-Strength is too weak. <br>
+This prevents Exceptions. <br>
+BugFix <br>
 **New from Version 11.0.5**<br>
 New Major Version. Versions 11.0.0 to 11.0.4 are internal Versions. <br>
 The Firmware was largely rewritten to free up even more RAM. <br>
