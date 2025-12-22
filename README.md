@@ -99,9 +99,10 @@ https://www.youtube.com/watch?v=ZmM3IA_AyQY <br>
 
 # Software:
 **New from Version 11.0.9**<br>
-Bug fix in the "gmc.ino" Module. Previously, if the Website was accessible but no Values ​​were displayed, an Exception occurred. <br>
+Bugfix in the "gmc.ino" Module. Previously, if the Website was accessible but no Values ​​were displayed, an Exception occurred. <br>
 Improvements in the "webserver.ino" Module <br>
 Version 11.0.8 is an internal Version. <br>
+BugFix Generally <br>
 **New from Version 11.0.7**<br>
 Version 11.0.6 is an internal Version. <br>
 Further Firmware optimization has freed up even more RAM. <br>
