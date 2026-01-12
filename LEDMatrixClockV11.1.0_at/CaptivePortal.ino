@@ -1,0 +1,440 @@
+/* ***************** Captive Portal *********************/
+IPAddress cpIP(APIPA1, APIPA2, APIPA3, APIPA4);  // Captive Portal IP-Adresse - outside of the router's own DHCP range - Default = 192.168.4.1
+
+const char* ProgramName = "LED-Matrix-Uhr";
+
+// *****************************************************************************************************************************************************
+
+String ipToString(IPAddress ip){
+  String s;
+  for (byte i=0; i<4; i++)
+    s += i  ? "." + String(ip[i]) : String(ip[i]);
+  return s;}
+
+// *****************************************************************************************************************************************************
+
+void CaptivePortal(){
+// API-Key Update (per Remote)
+// RemoteAPIKeyUpdate("N","pub_5323534636453645745781d3cdd5dfcf5e4",""); // N= News-Modul  /  W= Wetter-Modul  / Leer = kein Update  - APIKey
+// RemoteAPIKeyUpdate("W","94364564354365574586552ab76f6a89","2555670"); // N= News-Modul  /  W= Wetter-Modul  / Leer = kein Update  - APIKey,CityID
+
+// Start Captive Portal (Access Point)
+WiFi.mode(WIFI_AP);
+WiFi.softAPConfig(cpIP, cpIP, IPAddress(255, 255, 255, 0));   //Captive Portal IP-Adress
+WiFi.softAP(ProgramName, "");
+// Webserver - Ausgabe wenn Link nicht gefunden wurde
+server.onNotFound(WebSiteNotFound);
+server.on("/", handlePortal);
+server.begin();}
+
+// *****************************************************************************************************************************************************
+
+void handlePortal() {
+String HTMLString; HTMLString.reserve(180);
+if (ProgramName == "") {ProgramName = "Hostname";} 
+// Wenn gespeichert Button betätigt wurde 
+if (server.method() == HTTP_POST) {
+    // Einstellungen speichern
+    TempSSID = server.arg(F("ssid")); // Wifi SSID
+    password = server.arg(F("password")); // Wifi SSID Kennwort
+    String checkpasswd =  server.arg(F("checkpasswd")); // Wifi SSID Kennwort bestätigung
+    FederalState = server.arg(F("WBl")); // Bundesland in Österreich
+    weatherKey = server.arg(F("apikey")); // OpenWeatherMap - API-Key
+    cityID = server.arg(F("cityid")); // OpenWeatherMap - City ID
+    newsKey = server.arg(F("napi")); // NewsData-Key
+    GMCMapHistoryID = server.arg(F("gmcmhid")); // GMCMap History ID
+    SecureAppToken = server.arg(F("posat")); // Pushover SecureAppToken
+    UserToken = server.arg(F("pout")); // Pushover UserToken
+    PushoverDevice1 = server.arg(F("podev1")); // Pushover Gerätename 1
+    PushoverDevice2 = server.arg(F("podev2")); // Pushover Gerätename 2
+    PushoverDevice3 = server.arg(F("podev3")); // Pushover Gerätename 3
+    PushoverMessageSound = server.arg(F("poms")); // Pushover Nachrichten Sound
+    WatchOwner1FirstName = server.arg(F("1bv")); // 1. Besitzer - Vorname
+    WatchOwner1LastName = server.arg(F("1bn")); // 1. Besitzer - Nachname
+    Gender1 = server.arg(F("GS1")); // 1. Besitzer - Geschlecht
+    Birthday1 = server.arg(F("1bgb")); // 1. Besitzer - Geburtsdatum
+    WatchOwner2FirstName = server.arg(F("2bv")); // 2. Besitzer - Vorname
+    WatchOwner2LastName = server.arg(F("2bn")); // 2. Besitzer - Nachname
+    Gender2 = server.arg(F("GS2")); // 2. Besitzer - Geschlecht
+    Birthday2 = server.arg(F("2bgb")); // 2. Besitzer - Geburtsdatum
+    WatchOwner3FirstName = server.arg(F("3bv")); // 3. Besitzer - Vorname
+    WatchOwner3LastName = server.arg(F("3bn")); // 3. Besitzer - Nachname
+    Gender3 = server.arg(F("GS3")); // 3. Besitzer - Geschlecht
+    Birthday3 = server.arg(F("3bgb")); // 3. Besitzer - Geburtsdatum
+    MidnightGhost = server.arg(F("MG1")); // Mitternachsgeist anzeigen JA oder NEIN
+    DHTSensor = server.arg(F("DHT")); // Auswahl DHT-Sensor [DHT11, DHT22 oder KEIN]
+    MCTZ = server.arg(F("TZ1")); // Gewählte Zeitzone
+    NTPSN = server.arg(F("NTPS")); NTPSN.trim(); // NTPServer-Name
+    if (NTPSN != "") {ntpServerName = NTPSN.c_str();} else {ntpServerName = "at.pool.ntp.org";}
+    
+    CheckPushOver(); // Check PushOver Eingaben
+
+    // Buzzer installiert ?
+    if (server.arg("IsBuZZer") == "True") 
+    {IsBuzzer = true;} else {IsBuzzer = false;} 
+    
+    // Trim Strings
+    TempSSID.trim(); password.trim(); checkpasswd.trim(); weatherKey.trim(); cityID.trim();
+    newsKey.trim(); WatchOwner1FirstName.trim(); WatchOwner1LastName.trim();
+    Gender1.trim(); Birthday1.trim(); WatchOwner2FirstName.trim(); 
+    WatchOwner2LastName.trim(); Gender2.trim(); Birthday2.trim();
+    WatchOwner3FirstName.trim(); WatchOwner3LastName.trim();
+    Gender3.trim(); Birthday3.trim();
+
+    if (TempSSID != "" && password != "" && checkpasswd != "" && password.equals(checkpasswd)) { 
+    DEBUG_PRINTLN("SSID: "+TempSSID); // Wifi SSID
+    DEBUG_PRINTLN("Passwort: "+String(password)); // Wifi SSID Passwort
+
+    if (littleFSInit){
+    HTMLString = CP_HTMLStringPart1();
+    HTMLString += F("<body><main class='form-signin'>");
+    HTMLString += F("<h1>Captive-Portal</h1>");
+    HTMLString += "<h5>("+String(ProgramName)+")</h5>";
+    HTMLString += F("<br/>");
+    HTMLString += F("<h6>Die Zugangsdaten und Einstellungen wurden gespeichert<br />Die Uhr wird neu gestartet</h6>");
+    if (FederalState == "" || FederalState == "-") {
+    HTMLString += F("<br/>");
+    HTMLString += F("<br/>");
+    HTMLString += F("<br/>");
+    HTMLString += F("<h4>Achtung:</h4>");
+    HTMLString += F("<h3>Es werden nur die bundesweiten Feiertage angezeigt.</h3>");}
+    HTMLString += F("</main>");
+    HTMLString += F("</body>");
+    HTMLString += F("</html>");
+    SendHTMLString(HTMLString); // Send HTMLString 
+    MyWaitLoop(100);
+    SaveMatrixAdjustments(); // Eingaben im FileSystem speichern
+    MyWaitLoop(500); // 0,5 sek. warten 
+    if (SerialMonitor) {DEBUG_PRINTLN(F("Zugangsdaten gespeichert... "));} 
+    printStringWithShift("        +++       Zugangsdaten und Einstellungen gespeichert...      +++           ",ScrollTextTime); 
+    if (SerialMonitor) {DEBUG_PRINTLN(F("Die Uhr wird neu gestartet"));} 
+    printStringWithShift("        +++       Die Uhr wird neu gestartet      +++           ",ScrollTextTime);
+    // Reset auslösen
+    ESP.restart();} else
+     { // Zugangsdaten wurden nicht gespeichert
+     if (SerialMonitor) {DEBUG_PRINTLN(F("Zugangsdaten wurden nicht gespeichert !"));}
+    HTMLString = CP_HTMLStringPart1();
+    HTMLString += F("<body><main class='form-signin'>");
+    HTMLString += F("<h1>Captive-Portal</h1>");
+    HTMLString += "<h5>("+String(ProgramName)+")</h5>";
+    HTMLString += F("<br/>");
+    HTMLString += F("<h6>Fehler beim Speichern der Einstellungen<br />Die Uhr wird neu gestartet</h6>");
+    HTMLString += F("</main>");
+    HTMLString += F("</body>");
+    HTMLString += F("</html>");
+    SendHTMLString(HTMLString); // Send HTMLString 
+    MyWaitLoop(100);
+    printStringWithShift("        +++       Zugangsdaten und Einstellungen wurden nicht gespeichert !     +++           ",ScrollTextTime);
+    // Reset auslösen 
+    printStringWithShift("        +++       Die Uhr wird neu gestartet      +++           ",ScrollTextTime);
+    ESP.restart();}} else {
+    // unvollständige Einstellungen    
+    HTMLString = CP_HTMLStringPart1();
+    HTMLString += F("<body><main class='form-signin'>");
+    HTMLString += F("<h1>Captive-Portal</h1>");
+    HTMLString += "<h5>("+String(ProgramName)+")</h5>";
+    HTMLString += F("<br/>");
+    HTMLString += F("<h6>Die Einstellungen sind unvollständig oder ungültig !<br />Einstellungen wurden nicht gespeichert</h6>");
+    HTMLString += F("<br/>");
+    HTMLString += F("<a href =\"/\"><button class=\"button\">zurück zur Startseite</button></a>");
+    HTMLString += F("</main>");
+    HTMLString += F("</body>");
+    HTMLString += F("</html>");
+    SendHTMLString(HTMLString); // Send HTMLString 
+    MyWaitLoop(100);}
+  } else {
+    // Captive Portal Einstellungen
+    server.setContentLength(CONTENT_LENGTH_UNKNOWN);  
+    SendHTMLString(""); // Send HTMLString 
+    MyWaitLoop(100);
+    server.sendContent(CPRootHTMLString_1()); // 1. Teil
+    server.sendContent(CPRootHTMLString_2()); // 2. Teil
+    server.sendContent(CPRootHTMLString_3()); // 3. Teil
+    MyWaitLoop(100);
+    server.client().stop();}}
+
+// *****************************************************************************************************************************************************
+
+String CPRootHTMLString_1(){
+String HTMLString; HTMLString.reserve(180);  
+    HTMLString =  F("<!doctype html><html lang='de-AT'>");
+    HTMLString += F("<head><meta charset='utf-8'>");
+    HTMLString += F("<meta name='viewport' content='width=device-width, initial-scale=1'>");
+    HTMLString += F("<title>Captive-Portal</title>");
+    HTMLString += F("<style>");
+    HTMLString += F("*,::after,::before{box-sizing:border-box;}body{margin:0;font-family:");
+    HTMLString += F("'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans','Liberation Sans';font-size:1rem;");
+    HTMLString += F("font-weight:400;line-height:1.5;color:#212529;background-color:#f5f5f5;}.form-control{display:");
+    HTMLString += F("block;width:100%;height:calc(1.5em + .75rem + 2px);border:1px solid #ced4da;}button{border:1px solid");
+    HTMLString += F("transparent;color:#fff;background-color:#007bff;border-color:#007bff;padding:.5rem 1rem;font-size:1.25rem;");
+    HTMLString += F("line-height:1.5;border-radius:.3rem;width:100%}.form-signin{width:100%;max-width:420px;padding:15px;margin:auto;}h1,p{text-align: center}");
+    HTMLString += F("h5 {font-size: 24px; text-align:center; margin-top: 0px; margin-bottom: 10px;}"); 
+    HTMLString += F("h6 {font-size: 18px; margin-left: 100px; margin-top: 15px; margin-bottom: 5px; color: #0245b0;}");
+    HTMLString += F("h7 {font-size: 20px; font-weight: bold; margin-left: 100px; margin-top: 0px; margin-bottom: 5px; color: #06942c;}");
+    HTMLString += F("</style>");
+    HTMLString += F("</head>");
+    HTMLString += F("<body><main class='form-signin'>");
+    HTMLString += F("<form action='/' method='post'>");
+    HTMLString += F("<h1>Captive-Portal</h1>");
+    HTMLString += "<h5>("+String(ProgramName)+")</h5>";
+    HTMLString += F("<br/>");
+    return HTMLString;} 
+
+// *****************************************************************************************************************************************************
+
+String CPRootHTMLString_2(){
+String HTMLString, ssidsearch; 
+HTMLString.reserve(180);
+int16_t loops = 0; // for Sort SSID's 
+int16_t n = WiFi.scanNetworks(false, true); //WiFi.scanNetworks(async, show_hidden)
+    if (n > 0) {
+     // WLAN's sort by RSSI
+    int16_t indices[n];
+    int16_t skip[n];
+    int16_t o = n;
+    for (int16_t i = 0; i < n; i++) {
+    indices[i] = i;}
+    for (int16_t i = 0; i < n; i++) {
+        for (int16_t j = i + 1; j < n; j++) {
+          if (WiFi.RSSI(indices[j]) > WiFi.RSSI(indices[i])) {
+            loops++;
+            //int16_t temp = indices[j];
+            //indices[j] = indices[i];
+            //indices[i] = temp;
+            std::swap(indices[i], indices[j]);
+            std::swap(skip[i], skip[j]);}}}
+      for (int16_t i = 0; i < n; i++) {
+        if(indices[i] == -1){
+          --o;
+          continue;}
+        ssidsearch = WiFi.SSID(indices[i]);
+        for (int16_t j = i + 1; j < n; j++) {
+          loops++;
+          if (ssidsearch == WiFi.SSID(indices[j])) {
+            indices[j] = -1;}}}
+    for (int16_t i = 0; i < n; ++i){
+    // Print SSID 
+    if (i == 0) {
+    HTMLString += "<h7 onclick='SetSSID"+(String)i+"()' id='fssid"+(String)i+"'>" + WiFi.SSID(indices[i]) + "</h7>";} else {
+    HTMLString += "<h6 onclick='SetSSID"+(String)i+"()' id='fssid"+(String)i+"'>" + WiFi.SSID(indices[i]) + "</h6>";}
+    HTMLString += F("<script>");
+    HTMLString += "function SetSSID"+(String)i+"() {document.getElementById('ssid').value = document.getElementById('fssid"+(String)i+"').innerHTML;}";
+    HTMLString += F("</script>");}
+    } else {
+    HTMLString += F("<br/>");  
+    HTMLString += F("<br/>"); 
+    HTMLString += F("<h6>kein WLAN gefunden !</h6>");
+    HTMLString += F("<br/>");}
+    HTMLString += F("<br/>");
+    HTMLString += F("<div class='form-floating'><label>SSID</label><input type='text' class='form-control' name='ssid' id='ssid' value=''></div>");
+    HTMLString += F("<div class='form-floating'><br/><label>Kennwort</label><input type='password' class='form-control' name='password' id='password' value=''></div>");
+    HTMLString += F("<div class='form-floating'><br/><label>Kennwort bestätigen</label><input type='password' class='form-control' name='checkpasswd' id='checkpasswd' value=''></div>");
+    HTMLString += F("<br/>"); 
+    HTMLString += F("<br/>");
+    HTMLString += "<div class='form-floating'><label>NTP-Serverpool (z.Bsp. at.pool.ntp.org)</label><input type='text' class='form-control' name='NTPS' id='NTPS' value='"+NTPSN+"'></div>";
+    // *********************************** Zeitzone wählen **************************************************************************************************************
+    HTMLString += F("<div class='form-floating'><br/><label>Wählen Sie hier Ihre Zeitzone aus:</label>");   
+    HTMLString += F("<select name='TZ1' id='TZ1' class='form-control'>");
+    if (MCTZ == "Berlin, Frankfurt, Wien, Paris, Madrid") {HTMLString += "<option selected value='Berlin, Frankfurt, Wien, Paris, Madrid'>Berlin, Frankfurt, Wien, Paris, Madrid</option>";} else {HTMLString += "<option value='Berlin, Frankfurt, Wien, Paris, Madrid'>Berlin, Frankfurt, Wien, Paris, Madrid</option>";}
+    if (MCTZ == "London, Belfast, Dublin") {HTMLString += "<option selected value='London, Belfast, Dublin'>London, Belfast, Dublin</option>";} else {HTMLString += "<option value='London, Belfast, Dublin'>London, Belfast, Dublin</option>";}
+    if (MCTZ == "New York, Detroit, Miami, Lima") {HTMLString += "<option selected value='New York, Detroit, Miami, Lima'>New York, Detroit, Miami, Lima</option>";} else {HTMLString += "<option value='New York, Detroit, Miami, Lima'>New York, Detroit, Miami, Lima</option>";}
+    if (MCTZ == "Chicago, Houston, Mexico City") {HTMLString += "<option selected value='Chicago, Houston, Mexico City'>Chicago, Houston, Mexico City</option>";} else {HTMLString += "<option value='Chicago, Houston, Mexico City'>Chicago, Houston, Mexico City</option>";}
+    if (MCTZ == "Denver, Salt Lake City, Calgary") {HTMLString += "<option selected value='Denver, Salt Lake City, Calgary'>Denver, Salt Lake City, Calgary</option>";} else {HTMLString += "<option value='Denver, Salt Lake City, Calgary'>Denver, Salt Lake City, Calgary</option>";}
+    if (MCTZ == "Arizona") {HTMLString += "<option selected value='Arizona'>Arizona</option>";} else {HTMLString += "<option value='Arizona'>Arizona</option>";}
+    if (MCTZ == "Las Vegas, Los Angeles, Seattle") {HTMLString += "<option selected value='Las Vegas, Los Angeles, Seattle'>Las Vegas, Los Angeles, Seattle</option>";} else {HTMLString += "<option value='Las Vegas, Los Angeles, Seattle'>Las Vegas, Los Angeles, Seattle</option>";}
+    if (MCTZ == "Sydney, Melbourne") {HTMLString += "<option selected value='Sydney, Melbourne'>Sydney, Melbourne</option>";} else {HTMLString += "<option value='Sydney, Melbourne'>Sydney, Melbourne</option>";}
+    if (MCTZ == "Edmonton, Cranbrook, Fort St. John, Inuvik, Cambridge Bay, Lloydminster, Calgary") {HTMLString += "<option selected value='Edmonton, Cranbrook, Fort St. John, Inuvik, Cambridge Bay, Lloydminster, Calgary'>Edmonton, Cranbrook, Fort St. John, Inuvik, Cambridge Bay, Lloydminster, Calgary</option>";} else {HTMLString += "<option value='Edmonton, Cranbrook, Fort St. John, Inuvik, Cambridge Bay, Lloydminster, Calgary'>Edmonton, Cranbrook, Fort St. John, Inuvik, Cambridge Bay, Lloydminster, Calgary</option>";}
+    if (MCTZ == "Vancouver") {HTMLString += "<option selected value='Vancouver'>Vancouver</option>";} else {HTMLString += "<option value='Vancouver'>Vancouver</option>";}
+    if (MCTZ == "Winnipeg, Baker Lake, Kenora, Regina, Creighton") {HTMLString += "<option selected value='Winnipeg, Baker Lake, Kenora, Regina, Creighton'>Winnipeg, Baker Lake, Kenora, Regina, Creighton</option>";} else {HTMLString += "<option value='Winnipeg, Baker Lake, Kenora, Regina, Creighton'>Winnipeg, Baker Lake, Kenora, Regina, Creighton</option>";}
+    if (MCTZ == "Saint John, Happy Valley-Goose Bay, Halifax, Charlottetown, Blanc-Sablon, Cap-aux-Meules") {HTMLString += "<option selected value='Saint John, Happy Valley-Goose Bay, Halifax, Charlottetown, Blanc-Sablon, Cap-aux-Meules'>Saint John, Happy Valley-Goose Bay, Halifax, Charlottetown, Blanc-Sablon, Cap-aux-Meules</option>";} else {HTMLString += "<option value='Saint John, Happy Valley-Goose Bay, Halifax, Charlottetown, Blanc-Sablon, Cap-aux-Meules'>Saint John, Happy Valley-Goose Bay, Halifax, Charlottetown, Blanc-Sablon, Cap-aux-Meules</option>";}
+    if (MCTZ == "Coral Harbour, Pond Inlet, Atikokan, Toronto, Montreal, Ottawa") {HTMLString += "<option selected value='Coral Harbour, Pond Inlet, Atikokan, Toronto, Montreal, Ottawa'>Coral Harbour, Pond Inlet, Atikokan, Toronto, Montreal, Ottawa</option>";} else {HTMLString += "<option value='Coral Harbour, Pond Inlet, Atikokan, Toronto, Montreal, Ottawa'>Coral Harbour, Pond Inlet, Atikokan, Toronto, Montreal, Ottawa</option>";}
+    if (MCTZ == "Whitehorse") {HTMLString += "<option selected value='Whitehorse'>Whitehorse</option>";} else {HTMLString += "<option value='Whitehorse'>Whitehorse</option>";}
+    HTMLString += F("</select>");
+    HTMLString += F("</div>");
+    HTMLString += F("<br/>"); 
+    //                                  +++++++++++ Besitzer der Uhr +++++++++++++
+    // Hauptbesitzer
+    HTMLString += F("<div class='form-floating'><br/><label style=\"margin-left: 6px; font-weight: bold;\"> ++++++++ Besitzer der Uhr (Optional) ++++++++</label></div>");
+    HTMLString += "<div class='form-floating'><br/><label>1. Besitzer - Nachname</label><input type='text' maxlength='64' class='form-control' name='1bn' id='1bn' value='"+WatchOwner1LastName+"'></div>";
+    HTMLString += "<div class='form-floating'><br/><label>1. Besitzer - Vorname</label><input type='text' maxlength='64' class='form-control' name='1bv' id='1bv' value='"+WatchOwner1FirstName+"'></div>";
+    HTMLString += F("<div class='form-floating'><br/><label>Wählen Sie hier das Geschlecht aus:</label>");   
+    HTMLString += F("<select name='GS1' id='GS1' class='form-control'>");
+    if (Gender1 == "") {HTMLString += "<option selected value=''>Geschlecht</option>";} else {HTMLString += "<option value=''>Geschlecht</option>";}
+    if (Gender1 == "female") {HTMLString += "<option selected value='female'>weiblich</option>";} else {HTMLString += "<option value='female'>weiblich</option>";}
+    if (Gender1 == "male") {HTMLString += "<option selected value='male'>männlich</option>";} else {HTMLString += "<option value='male'>männlich</option>";}
+    HTMLString += F("</select>");
+    HTMLString += F("</div>");
+    HTMLString += "<div class='form-floating'><br/><label>1. Besitzer - Geburtsdatum*</label><input type='text' maxlength='5' class='form-control' name='1bgb' id='1bgd' value='"+Birthday1+"'></div>";
+    HTMLString += F("<br/>"); 
+    // 2. Besitzer
+    HTMLString += "<div class='form-floating'><br/><label>2. Besitzer - Nachname</label><input type='text' maxlength='64' class='form-control' name='2bn' id='2bn' value='"+WatchOwner2LastName+"'></div>";
+    HTMLString += "<div class='form-floating'><br/><label>2. Besitzer - Vorname</label><input type='text' maxlength='64' class='form-control' name='2bv' id='2bv' value='"+WatchOwner2FirstName+"'></div>";
+    HTMLString += F("<div class='form-floating'><br/><label>Wählen Sie hier das Geschlecht aus:</label>");   
+    HTMLString += F("<select name='GS2' id='GS2' class='form-control'>");
+    if (Gender2 == "") {HTMLString += "<option selected value=''>Geschlecht</option>";} else {HTMLString += "<option value=''>Geschlecht</option>";}
+    if (Gender2 == "female") {HTMLString += "<option selected value='female'>weiblich</option>";} else {HTMLString += "<option value='female'>weiblich</option>";}
+    if (Gender2 == "male") {HTMLString += "<option selected value='male'>männlich</option>";} else {HTMLString += "<option value='male'>männlich</option>";}
+    HTMLString += F("</select>");
+    HTMLString += F("</div>");
+    HTMLString += "<div class='form-floating'><br/><label>2. Besitzer - Geburtsdatum*</label><input type='text' maxlength='5' class='form-control' name='2bgb' id='2bgd' value='"+Birthday2+"'></div>";
+    HTMLString += F("<br/>"); 
+    // 3. Besitzer
+    HTMLString += "<div class='form-floating'><br/><label>3. Besitzer - Nachname</label><input type='text' maxlength='64' class='form-control' name='3bn' id='3bn' value='"+WatchOwner3LastName+"'></div>";
+    HTMLString += "<div class='form-floating'><br/><label>3. Besitzer - Vorname</label><input type='text' maxlength='64' class='form-control' name='3bv' id='3bv' value='"+WatchOwner3FirstName+"'></div>";
+    HTMLString += F("<div class='form-floating'><br/><label>Wählen Sie hier das Geschlecht aus:</label>");   
+    HTMLString += F("<select name='GS3' id='GS3' class='form-control'>");
+    if (Gender3 == "") {HTMLString += "<option selected value=''>Geschlecht</option>";} else {HTMLString += "<option value=''>Geschlecht</option>";}
+    if (Gender3 == "female") {HTMLString += "<option selected value='female'>weiblich</option>";} else {HTMLString += "<option value='female'>weiblich</option>";}
+    if (Gender3 == "male") {HTMLString += "<option selected value='male'>männlich</option>";} else {HTMLString += "<option value='male'>männlich</option>";}
+    HTMLString += F("</select>");
+    HTMLString += F("</div>");
+    HTMLString += "<div class='form-floating'><br/><label>3. Besitzer - Geburtsdatum*</label><input type='text' maxlength='5' class='form-control' name='3bgb' id='3bgd' value='"+Birthday3+"'></div>";
+    HTMLString += F("<div class='form-floating'><br/><label style=\"margin-left: 6px;\">*) Geburtsdatum ohne führende Null und Jahr</label></div>");
+    HTMLString += F("<div class='form-floating'><label style=\"margin-left: 24px;\">(z.Bsp. 17.3 oder 2.4 oder 5.10 oder 23.11)</label></div>");
+    HTMLString += F("<br/><br/>"); 
+    // ********* Bundesländer einlesen *********
+    if (IsFederalStateOK(FederalState)) {
+    HTMLString += F("<div class='form-floating'><br/><label>Wählen Sie hier Ihr Bundesland in Österreich aus:</label>");   
+    HTMLString += F("<select name='WBl' id='WBl' class='form-control'>");
+    if (FederalState == "" || FederalState == "-") {HTMLString += "<option selected value='-'>"+LongFederalState("-")+"</option>";} else {HTMLString += "<option value='-'>"+LongFederalState("-")+"</option>";}
+    if (FederalState == "B") {HTMLString += "<option selected value='B'>"+LongFederalState("B")+"</option>";} else {HTMLString += "<option value='B'>"+LongFederalState("B")+"</option>";}
+    if (FederalState == "K") {HTMLString += "<option selected value='K'>"+LongFederalState("K")+"</option>";} else {HTMLString += "<option value='K'>"+LongFederalState("K")+"</option>";}
+    if (FederalState == "ST") {HTMLString += "<option selected value='ST'>"+LongFederalState("ST")+"</option>";} else {HTMLString += "<option value='ST'>"+LongFederalState("ST")+"</option>";}
+    if (FederalState == "N") {HTMLString += "<option selected value='N'>"+LongFederalState("N")+"</option>";} else {HTMLString += "<option value='N'>"+LongFederalState("N")+"</option>";}
+    if (FederalState == "O") {HTMLString += "<option selected value='O'>"+LongFederalState("O")+"</option>";} else {HTMLString += "<option value='O'>"+LongFederalState("O")+"</option>";}
+    if (FederalState == "S") {HTMLString += "<option selected value='S'>"+LongFederalState("S")+"</option>";} else {HTMLString += "<option value='S'>"+LongFederalState("S")+"</option>";}
+    if (FederalState == "T") {HTMLString += "<option selected value='T'>"+LongFederalState("T")+"</option>";} else {HTMLString += "<option value='T'>"+LongFederalState("T")+"</option>";}
+    if (FederalState == "V") {HTMLString += "<option selected value='V'>"+LongFederalState("V")+"</option>";} else {HTMLString += "<option value='V'>"+LongFederalState("V")+"</option>";}
+    if (FederalState == "W") {HTMLString += "<option selected value='W'>"+LongFederalState("W")+"</option>";} else {HTMLString += "<option value='W'>"+LongFederalState("W")+"</option>";}
+    HTMLString += F("</select>");}
+    HTMLString += F("</div>");
+    HTMLString += F("<br/>");
+    // ******************************************* Parameter ************************************************************************************************************************************
+    HTMLString += "<div class='form-floating'><br/><label style=\"margin-left: 6px; font-weight: bold;\">+++ OpenWeatherMap und NewsData (Optional) +++</label></div>";
+    HTMLString += "<div class='form-floating'><br/><label>OpenWeatherMap - API-Key</label><input type='text' maxlength='64' class='form-control' name='apikey' id='apikey' value='"+weatherKey+"'></div>";
+    HTMLString += "<div class='form-floating'><br/><label>OpenWeatherMap - City-ID</label><input type='text' maxlength='10' class='form-control' name='cityid' id='cityid' value='"+cityID+"'></div>";
+    HTMLString += "<div class='form-floating'><br/><label>NewsData - API-Key</label><input type='text' maxlength='64' class='form-control' name='napi' id='napi' value='"+newsKey+"'></div>";
+    HTMLString += "<div class='form-floating'><br/><label style=\"margin-left: 36px; font-weight: bold;\">+++ Radioaktivitätsmessung (Optional) +++</label></div>";
+    HTMLString += "<div class='form-floating'><br/><label>GMCMap.com - History-ID</label><input type='text' maxlength='15' class='form-control' name='gmcmhid' id='gmcmhid' value='"+GMCMapHistoryID+"'></div>";
+    HTMLString += F("<br/>");
+    HTMLString += "<div class='form-floating'><br/><label style=\"margin-left: 16px; font-weight: bold;\">+++ Pushover Nachrichtendienst (Optional) +++</label></div>";
+    HTMLString += "<div class='form-floating'><br/><label>Pushover - SecureAppToken</label><input type='text' maxlength='64' class='form-control' name='posat' id='posat' value='"+SecureAppToken+"'></div>";
+    HTMLString += "<div class='form-floating'><br/><label>Pushover - UserToken</label><input type='text' maxlength='64' class='form-control' name='pout' id='pout' value='"+UserToken+"'></div>";
+    HTMLString += "<div class='form-floating'><br/><label>Pushover - Gerätename 1</label><input type='text' maxlength='64' class='form-control' name='podev1' id='podev1' value='"+PushoverDevice1+"'></div>";
+    HTMLString += "<div class='form-floating'><br/><label>Pushover - Gerätename 2 (Optional)</label><input type='text' maxlength='64' class='form-control' name='podev2' id='podev2' value='"+PushoverDevice2+"'></div>";
+    HTMLString += "<div class='form-floating'><br/><label>Pushover - Gerätename 3 (Optional)</label><input type='text' maxlength='64' class='form-control' name='podev3' id='podev3' value='"+PushoverDevice3+"'></div>";
+    HTMLString += "<div class='form-floating'><br/><label>Pushover - Nachrichten Sound (https://pushover.net/api#sounds)</label><input type='text' maxlength='32' class='form-control' name='poms' id='poms' value='"+PushoverMessageSound+"'></div>";
+    HTMLString += F("<br/>");
+    HTMLString += F("<div class='form-floating'><br/><label>Geister um Mitternacht anzeigen ? [JA / NEIN]</label>");   
+    HTMLString += F("<select name='MG1' id='MG1' class='form-control'>");
+    if (MidnightGhost == "JA") {HTMLString += F("<option selected value='JA'>JA</option>");} else {HTMLString += F("<option value='JA'>JA</option>");}
+    if (MidnightGhost == "NEIN") {HTMLString += F("<option selected value='NEIN'>NEIN</option>");} else {HTMLString += F("<option value='NEIN'>NEIN</option>");}
+    HTMLString += F("</select>");
+    HTMLString += F("</div>");
+    HTMLString += F("<br/>");
+    HTMLString += F("<div class='form-floating'><br/><label>Temperatur- und Luftfeuchtesensor ?</label>"); 
+    HTMLString += F("<select name='DHT' id='DHT' class='form-control'>");
+    if (DHTSensor == "NoDHT") {HTMLString += F("<option selected value='NoDHT'>KEIN</option>");} else {HTMLString += F("<option value='NoDHT'>KEIN</option>");}
+    if (DHTSensor == "DHT11") {HTMLString += F("<option selected value='DHT11'>DHT11</option>");} else {HTMLString += F("<option value='DHT11'>DHT11</option>");}
+    if (DHTSensor == "DHT22") {HTMLString += F("<option selected value='DHT22'>DHT22</option>");} else {HTMLString += F("<option value='DHT22'>DHT22</option>");}
+    HTMLString += F("</select>");
+    HTMLString += F("</div>");
+    HTMLString += F("<br/>");
+    if (IsBuzzer) {
+    HTMLString += F("<div class='form-floating'><br/><label>&nbsp;Ein Passiv Piezo Summer verwenden&nbsp;");
+    HTMLString += F("(z.B. KY-006)</label><input type='checkbox' class='form-control' name='IsBuZZer' id='IsBuZZer' value='True' checked></div>");} else {
+    HTMLString += F("<div class='form-floating'><br/><label>&nbsp;Ein Passiv Piezo Summer verwenden&nbsp;");
+    HTMLString += F("(z.B. KY-006)</label><input type='checkbox' class='form-control' name='IsBuZZer' id='IsBuZZer' value='True'></div>");}
+    // ******************************************* Parameter ************************************************************************************************************************************  
+    return HTMLString;}  
+
+// *****************************************************************************************************************************************************
+
+String CPRootHTMLString_3(){
+    String HTMLString; HTMLString.reserve(180);
+    HTMLString += F("<br/><br/>");
+    HTMLString += F("<button type='submit'>Speichern</button>");
+    HTMLString += F("</form>");
+    HTMLString += F("<br/><br/>");
+    HTMLString += F("<form action='/' method='get'>");
+    HTMLString += F("<button type='submit'>Aktualisieren</button>");
+    HTMLString += F("</form>");
+    HTMLString += F("</main>");
+    HTMLString += F("</body>");
+    HTMLString += F("</html>");
+    return HTMLString;}
+
+// *****************************************************************************************************************************************************
+
+void WebSiteNotFound() {
+String HTMLString; HTMLString.reserve(180);   
+HTMLString = CP_HTMLStringPart1();
+HTMLString += F("<body><main class='form-signin'>");
+HTMLString += F("<h1>Captive-Portal</h1>");
+HTMLString += "<h5>("+String(ProgramName)+")</h5>";
+HTMLString += F("<br/>");
+HTMLString += F("<h8>&nbsp;&nbsp;&nbsp;Die Webseite wurde nicht gefunden !</h8>");
+HTMLString += F("<br/><br/>");
+HTMLString += F("<a href =\"/\"><button class=\"button\">zurück zur Startseite</button></a>");
+HTMLString += F("</main>");
+HTMLString += F("</body>");
+HTMLString += F("</html>");    
+SendHTMLString(HTMLString); // Send HTMLString
+MyWaitLoop(100);}
+
+// *****************************************************************************************************************************************************
+
+void RemoteAPIKeyUpdate(const char* APIModul,const char* NewKey,const char* OWMCID) {
+if (APIModul != "") {  
+if (littleFSInit) { 
+MyWaitLoop(1000); // kurz Warten
+if (SerialMonitor) {DEBUG_PRINTLN("");
+DEBUG_PRINTLN("****** Update API-Keys *******");}      
+if (APIModul == "N") { // News-Modul 
+if (NewKey != "") {
+if (LittleFS.exists(F("/newsapi-apikey.txt"))){  
+LittleFS.remove(F("/newsapi-apikey.txt"));}
+if (LittleFS.exists(F("/newsdata-apikey.txt"))){  
+LittleFS.remove(F("/newsdata-apikey.txt"));}
+SetupSave(F("newsdata-apikey.txt"), NewKey);
+newsKey = NewKey;
+if (SerialMonitor) {DEBUG_PRINTLN("News API-Key: "+newsKey);}}}
+if (APIModul == "W") { // Weather Modul
+if (NewKey != "") {
+if (LittleFS.exists(F("/owm-apikey.txt"))){  
+LittleFS.remove(F("/owm-apikey.txt"));}
+SetupSave(F("owm-apikey.txt"), NewKey);
+if (LittleFS.exists(F("/owm-cityid.txt"))){  
+LittleFS.remove(F("/owm-cityid.txt"));}
+SetupSave(F("owm-cityid.txt"), OWMCID);
+weatherKey = NewKey;
+cityID = OWMCID;
+if (SerialMonitor) {DEBUG_PRINTLN("OpenWeatherMap API-Key: "+weatherKey);
+DEBUG_PRINTLN("OpenWeatherMap City-ID: "+cityID);}}}}}}
+
+// *****************************************************************************************************************************************************
+
+String CP_HTMLStringPart1() {
+String HTMLString; HTMLString.reserve(180);
+HTMLString = F("<!doctype html><html lang='de-AT'>");
+HTMLString += F("<head><meta charset='utf-8'>");
+HTMLString += F("<meta name='viewport' content='width=device-width, initial-scale=1'>");
+HTMLString += F("<title>Captive-Portal</title>");
+HTMLString += F("<style>");
+HTMLString += F("*,::after,::before{box-sizing:border-box;}body{margin:0;font-family:");
+HTMLString += F("'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans','Liberation Sans';font-size:1rem;");
+HTMLString += F("font-weight:400;line-height:1.5;color:#212529;background-color:#f5f5f5;}.form-control{display:");
+HTMLString += F("block;width:100%;height:calc(1.5em + .75rem + 2px);border:1px solid #ced4da;}button{border:1px solid");
+HTMLString += F("transparent;color:#fff;background-color:#007bff;border-color:#007bff;padding:.5rem 1rem;font-size:1.25rem;");
+HTMLString += F("line-height:1.5;border-radius:.3rem;width:100%}.form-signin{width:100%;max-width:420px;padding:15px;margin:auto;}h1,p{text-align: center}");
+HTMLString += F("h3 {font-size: 16px; color: red; text-align:center; margin-top: 0px; margin-bottom: 15px;}");
+HTMLString += F("h4 {font-size: 18px; color: red; text-align:center; margin-top: 0px; margin-bottom: 15px;}");
+HTMLString += F("h5 {font-size: 24px; text-align:center; margin-top: 0px; margin-bottom: 10px;}"); 
+HTMLString += F("h6 {font-size: 18px; text-align:center; margin-top: 0px; margin-bottom: 15px;}");
+HTMLString += F("h7 {font-size: 20px; font-weight: bold; margin-left: 100px; margin-top: 0px; margin-bottom: 5px; color: #06942c;}");
+HTMLString += F("h8 {font-size: 20px; text-align:center; margin-top: 0px; margin-bottom: 10px;}");
+HTMLString += F("</style>");
+HTMLString += F("</head>");
+return HTMLString;}
+
+// *****************************************************************************************************************************************************
