@@ -67,7 +67,7 @@ The call is made via the IP address of the clock or <br>
 # GMCMap.com:
 Example Setting in Captive Portal: <br>
 GMCMap.com - History-ID: **12345678** <br>
-GMCMap.com - GMT-Offset: **2** <br>
+GMCMap.com - GMT-Offset: **<calculate automatically>** <br>
 (Web URL: www.gmcmap.com/historyData.asp?Param_ID=12345678&systemTimeZone=2)  <br>
 <br>
 Explanation of the "GMCMapMidnightAccessDelay" Function:<br>
